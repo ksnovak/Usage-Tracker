@@ -1,0 +1,47 @@
+The purpose of this is to track usage and purchases of certain things.
+For example:
+    How often do I have to buy paper towels?
+    How often do I have to empty the litter box?
+    How often do I really add oil to the car?
+    How many uses do I realistically get out of this ____?
+
+That could eventually get translated into,
+    Do I need to buy more ___
+    How long until I need to buy more ___
+    How can I cut down on my ___ usage (or increase)
+    Should I ____ more/less often?
+
+Two basic types of things to consider: Exhaustive objects, and repeating tasks
+    - You buy a bag of pet food, you use it a certain number of times, and run out. You buy another bag, and repeat.
+    - You clean the bathroom, but the bathroom doesn't get replaced or used up, and you'll clean up the same one later on
+
+
+So, we need to be able to:
+    * Define a thing.
+    * Mark it as at least one of:
+        * A recurring purchase (e.g. bread)
+        * A recurring task (e.g. doing the dishes)
+        * A recurring use (e.g. detergent)
+    * Set a date of:
+        * Purchase
+        * Initial usage (e.g. bought a 3-pack, want to mark when you started using the 2nd bag)
+        * Recurred usage
+        * Exhaustion (e.g. used up the last of the detergent)
+    * Maintain statistics for that thing:
+        * Lifespan - days and uses
+        *
+    * Recur ownership (e.g. used up the paper towels, bought another set)
+         * This would be another instance of an object, which maintains some stats of the parent, but has its own short-term stats
+    * Hold other information for user's future usage
+        * Historical price, purchase location
+        * Size
+
+Database model:
+    * Users - Basic definition for the user
+        - ID, Username, Password, Nickname
+    * Definition - Declaration of the basic thing
+        - ID, Name, [number of instances], [overall usage count], [tracked lifetime]
+    * Instance -
+        - ID, Start date, Exhaustion date, total size, [usage count], [lifespan], [used size]
+    * Occurrence - Simply track a use of the item
+        - ID, occurrence date, size used

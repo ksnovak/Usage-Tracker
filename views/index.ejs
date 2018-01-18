@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include partials/header %>
+    <title>Usage Tracker</title>
+
+    <style>
+        .abc {background-color: #abcabc;}
+
+        .dad {background-color: #daaaad;}
+
+        .bca {background-color: #bcabca;}
+    </style>
+</head>
+<body>
+
+    Hi welcome
+
+    <div class='container-fluid dad'>
+        <div class='row'>
+
+            <div class='col-sm-8 bca' id='main'>
+                <ul class="entities">
+                <% for(var i=0; i < entities.length; i++) {%>
+                    <li class="entity">
+                        <span><%= entities[i].name %></span>
+                        <span> (<%= entities[i].category %>)</span>
+                        <span>, "<%= entities[i].description %>"</span>
+                        <span> started <%= entities[i].startDate %></span>
+                    </li>
+                    <% } %>
+                </ul>
+            </div>
+
+            <div class='col-sm-4 abc' id='newEntity'>
+                <% include components/entity %>
+            </div>
+
+        </div>
+    </div>
+
+<!--
+        <ul class="entities">
+        <% for(var i=0; i < entities.length; i++) {%>
+            <li class="quote">
+                <span><%= entities[i].name %></span>
+                <span><%= entities[i].quote %></span>
+            </li>
+            <% } %>
+        </ul>
+        <div>
+            <h2>Replace blah with blah</h2>
+            <button id='update'>Darth Vader!</button>
+        </div>
+        <div>
+            <h2> Delete boop</h2>
+            <button id='delete'>Delete the first vader quote</button>
+        </div>
+
+        <form action="/entities" method="POST">
+            <input type="text" placeholder="name" name="name">
+            <input type="text" placeholder="quote" name="quote">
+            <button type="submit">Submit</button>
+        </form>
+
+    -->
+
+        <% include partials/footer %>
+        <script src='main.js'></script>
+    </body>
+</html>
